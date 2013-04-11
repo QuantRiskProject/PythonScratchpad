@@ -1,0 +1,10 @@
+def nantozero(myndarray): #replace nan values with zero
+    myshapetuple = myndarray.shape
+    xcount = 0
+    ycount = 0
+    for x in range(1,myshapetuple[0]):
+        for y in range(1, myshapetuple[1]):
+            if myndarray[x, y] == float('nan'):
+                myndarray[x, y] = 0
+            
+    return myndarray[1:,1:]      
