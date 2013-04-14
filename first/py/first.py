@@ -1,5 +1,5 @@
 import os
-os.chdir('C:\\Users\\nooree\\Google Drive\\Python\\first\\')
+os.chdir('C:\\Users\\nooree\\Google Drive\\Python\\PythonScratchpad\\first\\')
 
 from numpy import genfromtxt
 my_data = genfromtxt('.\\data\\NG12 G1 CD41.csv', delimiter=',')
@@ -37,4 +37,13 @@ matplotlib.pyplot.ylabel('Intensity')
 matplotlib.pyplot.title('Summary graph for NG12 G1 CD41')
 matplotlib.pyplot.show()
 
-    
+import pandas as pd
+#create a timeseries
+
+pd_ts_mean = pd.Series(ts_mean, times)
+print(pd_ts_mean.head())
+
+import statsmodels.tsa.vector_ar.var_model as statsvar
+#Vector Autoregression
+smmodel = statsvar.VAR(pd_ts_mean); model.select_order(8)
+

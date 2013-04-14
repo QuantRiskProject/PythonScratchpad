@@ -1,0 +1,1202 @@
+{
+ "metadata": {
+  "name": "superfun"
+ },
+ "nbformat": 3,
+ "nbformat_minor": 0,
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "print 'hello, world!'"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "hello, world!\n"
+       ]
+      }
+     ],
+     "prompt_number": 1
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "plt.plot(np.random.randn(1000).cumsum())"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 2,
+       "text": [
+        "[<matplotlib.lines.Line2D at 0x7beccf8>]"
+       ]
+      },
+      {
+       "output_type": "display_data",
+       "png": "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\nG4JBBQAAAABJRU5ErkJggg==\n",
+       "text": [
+        "<matplotlib.figure.Figure at 0x7b8a048>"
+       ]
+      }
+     ],
+     "prompt_number": 2
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "import numpy as np\n",
+      "from pandas import Series, DataFrame\n",
+      "import pandas as pd\n",
+      "np.arange(5)[2:]\n"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 5,
+       "text": [
+        "array([2, 3, 4])"
+       ]
+      }
+     ],
+     "prompt_number": 5
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "index = ['a', 'b', 'c', 'd', 'e']\n",
+      "s = Series(np.arange(5), index = index)\n",
+      "s\n",
+      "s[:3]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 7,
+       "text": [
+        "a    0\n",
+        "b    1\n",
+        "c    2"
+       ]
+      }
+     ],
+     "prompt_number": 7
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s.values\n",
+      "s.index"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 9,
+       "text": [
+        "Index([a, b, c, d, e], dtype=object)"
+       ]
+      }
+     ],
+     "prompt_number": 9
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "s*2"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 10,
+       "text": [
+        "a    0\n",
+        "b    2\n",
+        "c    4\n",
+        "d    6\n",
+        "e    8"
+       ]
+      }
+     ],
+     "prompt_number": 10
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 11,
+       "text": [
+        "b    1\n",
+        "d    3\n",
+        "e    4"
+       ]
+      }
+     ],
+     "prompt_number": 11
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "dates = pd.date_range('2012-07-16', '2012-07-21')\n",
+      "atemps = Series([101.5, 99.5, 62, 85, 99, 97], index = dates)\n",
+      "sdtemps = Series([73, 78, 77, 78, 73, 78], index = dates)\n",
+      "temps = DataFrame({'Austin' : atemps, 'San Diego' : sdtemps})\n",
+      "temps"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<div style=\"max-height:1000px;max-width:1500px;overflow:auto;\">\n",
+        "<table border=\"1\" class=\"dataframe\">\n",
+        "  <thead>\n",
+        "    <tr style=\"text-align: right;\">\n",
+        "      <th></th>\n",
+        "      <th>Austin</th>\n",
+        "      <th>San Diego</th>\n",
+        "    </tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+        "    <tr>\n",
+        "      <th>2012-07-16</th>\n",
+        "      <td> 101.5</td>\n",
+        "      <td> 73</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-17</th>\n",
+        "      <td>  99.5</td>\n",
+        "      <td> 78</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-18</th>\n",
+        "      <td>  62.0</td>\n",
+        "      <td> 77</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-19</th>\n",
+        "      <td>  85.0</td>\n",
+        "      <td> 78</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-20</th>\n",
+        "      <td>  99.0</td>\n",
+        "      <td> 73</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-21</th>\n",
+        "      <td>  97.0</td>\n",
+        "      <td> 78</td>\n",
+        "    </tr>\n",
+        "  </tbody>\n",
+        "</table>\n",
+        "</div>"
+       ],
+       "output_type": "pyout",
+       "prompt_number": 19,
+       "text": [
+        "            Austin  San Diego\n",
+        "2012-07-16   101.5         73\n",
+        "2012-07-17    99.5         78\n",
+        "2012-07-18    62.0         77\n",
+        "2012-07-19    85.0         78\n",
+        "2012-07-20    99.0         73\n",
+        "2012-07-21    97.0         78"
+       ]
+      }
+     ],
+     "prompt_number": 19
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "temps['Austin']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 20,
+       "text": [
+        "2012-07-16    101.5\n",
+        "2012-07-17     99.5\n",
+        "2012-07-18     62.0\n",
+        "2012-07-19     85.0\n",
+        "2012-07-20     99.0\n",
+        "2012-07-21     97.0\n",
+        "Freq: D, Name: Austin"
+       ]
+      }
+     ],
+     "prompt_number": 20
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "temps['Diff'] = temps['Austin'] - temps['San Diego']\n",
+      "temps"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<div style=\"max-height:1000px;max-width:1500px;overflow:auto;\">\n",
+        "<table border=\"1\" class=\"dataframe\">\n",
+        "  <thead>\n",
+        "    <tr style=\"text-align: right;\">\n",
+        "      <th></th>\n",
+        "      <th>Austin</th>\n",
+        "      <th>San Diego</th>\n",
+        "      <th>Diff</th>\n",
+        "    </tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+        "    <tr>\n",
+        "      <th>2012-07-16</th>\n",
+        "      <td> 101.5</td>\n",
+        "      <td> 73</td>\n",
+        "      <td> 28.5</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-17</th>\n",
+        "      <td>  99.5</td>\n",
+        "      <td> 78</td>\n",
+        "      <td> 21.5</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-18</th>\n",
+        "      <td>  62.0</td>\n",
+        "      <td> 77</td>\n",
+        "      <td>-15.0</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-19</th>\n",
+        "      <td>  85.0</td>\n",
+        "      <td> 78</td>\n",
+        "      <td>  7.0</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-20</th>\n",
+        "      <td>  99.0</td>\n",
+        "      <td> 73</td>\n",
+        "      <td> 26.0</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-21</th>\n",
+        "      <td>  97.0</td>\n",
+        "      <td> 78</td>\n",
+        "      <td> 19.0</td>\n",
+        "    </tr>\n",
+        "  </tbody>\n",
+        "</table>\n",
+        "</div>"
+       ],
+       "output_type": "pyout",
+       "prompt_number": 23,
+       "text": [
+        "            Austin  San Diego  Diff\n",
+        "2012-07-16   101.5         73  28.5\n",
+        "2012-07-17    99.5         78  21.5\n",
+        "2012-07-18    62.0         77 -15.0\n",
+        "2012-07-19    85.0         78   7.0\n",
+        "2012-07-20    99.0         73  26.0\n",
+        "2012-07-21    97.0         78  19.0"
+       ]
+      }
+     ],
+     "prompt_number": 23
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "temps.columns"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 30,
+       "text": [
+        "Index([Austin, San Diego, Diff], dtype=object)"
+       ]
+      }
+     ],
+     "prompt_number": 30
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "temps.ix[2]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 40,
+       "text": [
+        "Austin       62\n",
+        "San Diego    77\n",
+        "Name: 2012-07-18 00:00:00"
+       ]
+      }
+     ],
+     "prompt_number": 40
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "idx = temps.index[2]\n",
+      "temps.ix[idx:, 'Austin']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 42,
+       "text": [
+        "2012-07-18    62\n",
+        "2012-07-19    85\n",
+        "2012-07-20    99\n",
+        "2012-07-21    97\n",
+        "Freq: D, Name: Austin"
+       ]
+      }
+     ],
+     "prompt_number": 42
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "temps.mean()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 43,
+       "text": [
+        "Austin       90.666667\n",
+        "San Diego    76.166667"
+       ]
+      }
+     ],
+     "prompt_number": 43
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "randn(100,100).mean()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 44,
+       "text": [
+        "-0.017262686703415454"
+       ]
+      }
+     ],
+     "prompt_number": 44
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "temps.mean(1)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 45,
+       "text": [
+        "2012-07-16    87.25\n",
+        "2012-07-17    88.75\n",
+        "2012-07-18    69.50\n",
+        "2012-07-19    81.50\n",
+        "2012-07-20    86.00\n",
+        "2012-07-21    87.50\n",
+        "Freq: D"
+       ]
+      }
+     ],
+     "prompt_number": 45
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "temps - temps.mean()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<div style=\"max-height:1000px;max-width:1500px;overflow:auto;\">\n",
+        "<table border=\"1\" class=\"dataframe\">\n",
+        "  <thead>\n",
+        "    <tr style=\"text-align: right;\">\n",
+        "      <th></th>\n",
+        "      <th>Austin</th>\n",
+        "      <th>San Diego</th>\n",
+        "    </tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+        "    <tr>\n",
+        "      <th>2012-07-16</th>\n",
+        "      <td> 10.833333</td>\n",
+        "      <td>-3.166667</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-17</th>\n",
+        "      <td>  8.833333</td>\n",
+        "      <td> 1.833333</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-18</th>\n",
+        "      <td>-28.666667</td>\n",
+        "      <td> 0.833333</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-19</th>\n",
+        "      <td> -5.666667</td>\n",
+        "      <td> 1.833333</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-20</th>\n",
+        "      <td>  8.333333</td>\n",
+        "      <td>-3.166667</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2012-07-21</th>\n",
+        "      <td>  6.333333</td>\n",
+        "      <td> 1.833333</td>\n",
+        "    </tr>\n",
+        "  </tbody>\n",
+        "</table>\n",
+        "</div>"
+       ],
+       "output_type": "pyout",
+       "prompt_number": 46,
+       "text": [
+        "               Austin  San Diego\n",
+        "2012-07-16  10.833333  -3.166667\n",
+        "2012-07-17   8.833333   1.833333\n",
+        "2012-07-18 -28.666667   0.833333\n",
+        "2012-07-19  -5.666667   1.833333\n",
+        "2012-07-20   8.333333  -3.166667\n",
+        "2012-07-21   6.333333   1.833333"
+       ]
+      }
+     ],
+     "prompt_number": 46
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "#select subset where Austin > 100\n",
+      "temps[temps.Austin > 100]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<div style=\"max-height:1000px;max-width:1500px;overflow:auto;\">\n",
+        "<table border=\"1\" class=\"dataframe\">\n",
+        "  <thead>\n",
+        "    <tr style=\"text-align: right;\">\n",
+        "      <th></th>\n",
+        "      <th>Austin</th>\n",
+        "      <th>San Diego</th>\n",
+        "    </tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+        "    <tr>\n",
+        "      <th>2012-07-16</th>\n",
+        "      <td> 101.5</td>\n",
+        "      <td> 73</td>\n",
+        "    </tr>\n",
+        "  </tbody>\n",
+        "</table>\n",
+        "</div>"
+       ],
+       "output_type": "pyout",
+       "prompt_number": 47,
+       "text": [
+        "            Austin  San Diego\n",
+        "2012-07-16   101.5         73"
+       ]
+      }
+     ],
+     "prompt_number": 47
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "#reading and writing files\n",
+      "pd.read_csv"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 48,
+       "text": [
+        "<function pandas.io.parsers.read_csv>"
+       ]
+      }
+     ],
+     "prompt_number": 48
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "df2 = pd.read_csv('data/test1.csv', parse_dates=['date'])\n",
+      "df2"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<div style=\"max-height:1000px;max-width:1500px;overflow:auto;\">\n",
+        "<table border=\"1\" class=\"dataframe\">\n",
+        "  <thead>\n",
+        "    <tr style=\"text-align: right;\">\n",
+        "      <th></th>\n",
+        "      <th>date</th>\n",
+        "      <th>0</th>\n",
+        "      <th>1</th>\n",
+        "      <th>2</th>\n",
+        "      <th>3</th>\n",
+        "    </tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+        "    <tr>\n",
+        "      <th>0</th>\n",
+        "      <td>2000-01-01 00:00:00</td>\n",
+        "      <td> 1.103763</td>\n",
+        "      <td>-1.909979</td>\n",
+        "      <td>-0.808956</td>\n",
+        "      <td>-2.392629</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>1</th>\n",
+        "      <td>2000-01-02 00:00:00</td>\n",
+        "      <td> 1.188917</td>\n",
+        "      <td> 0.581120</td>\n",
+        "      <td> 0.861597</td>\n",
+        "      <td>-0.213885</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2</th>\n",
+        "      <td>2000-01-03 00:00:00</td>\n",
+        "      <td>-0.964200</td>\n",
+        "      <td> 0.779764</td>\n",
+        "      <td> 1.829062</td>\n",
+        "      <td> 0.322422</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>3</th>\n",
+        "      <td>2000-01-04 00:00:00</td>\n",
+        "      <td> 0.782130</td>\n",
+        "      <td>-1.720670</td>\n",
+        "      <td>-1.108242</td>\n",
+        "      <td> 1.233489</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>4</th>\n",
+        "      <td>2000-01-05 00:00:00</td>\n",
+        "      <td>-1.867017</td>\n",
+        "      <td>-0.528368</td>\n",
+        "      <td>-2.488309</td>\n",
+        "      <td> 1.480342</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>5</th>\n",
+        "      <td>2000-01-06 00:00:00</td>\n",
+        "      <td> 2.569280</td>\n",
+        "      <td>-0.471901</td>\n",
+        "      <td>-0.835033</td>\n",
+        "      <td>-0.532133</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>6</th>\n",
+        "      <td>2000-01-07 00:00:00</td>\n",
+        "      <td>-0.399323</td>\n",
+        "      <td>-0.676427</td>\n",
+        "      <td>-0.011256</td>\n",
+        "      <td> 0.223252</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>7</th>\n",
+        "      <td>2000-01-08 00:00:00</td>\n",
+        "      <td> 1.642993</td>\n",
+        "      <td> 1.013420</td>\n",
+        "      <td> 1.435667</td>\n",
+        "      <td>-0.635862</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>8</th>\n",
+        "      <td>2000-01-09 00:00:00</td>\n",
+        "      <td> 1.147308</td>\n",
+        "      <td> 2.138000</td>\n",
+        "      <td> 0.554171</td>\n",
+        "      <td>-0.255538</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>9</th>\n",
+        "      <td>2000-01-10 00:00:00</td>\n",
+        "      <td> 0.933766</td>\n",
+        "      <td> 1.387155</td>\n",
+        "      <td>-0.560143</td>\n",
+        "      <td>-0.787083</td>\n",
+        "    </tr>\n",
+        "  </tbody>\n",
+        "</table>\n",
+        "</div>"
+       ],
+       "output_type": "pyout",
+       "prompt_number": 54,
+       "text": [
+        "                 date         0         1         2         3\n",
+        "0 2000-01-01 00:00:00  1.103763 -1.909979 -0.808956 -2.392629\n",
+        "1 2000-01-02 00:00:00  1.188917  0.581120  0.861597 -0.213885\n",
+        "2 2000-01-03 00:00:00 -0.964200  0.779764  1.829062  0.322422\n",
+        "3 2000-01-04 00:00:00  0.782130 -1.720670 -1.108242  1.233489\n",
+        "4 2000-01-05 00:00:00 -1.867017 -0.528368 -2.488309  1.480342\n",
+        "5 2000-01-06 00:00:00  2.569280 -0.471901 -0.835033 -0.532133\n",
+        "6 2000-01-07 00:00:00 -0.399323 -0.676427 -0.011256  0.223252\n",
+        "7 2000-01-08 00:00:00  1.642993  1.013420  1.435667 -0.635862\n",
+        "8 2000-01-09 00:00:00  1.147308  2.138000  0.554171 -0.255538\n",
+        "9 2000-01-10 00:00:00  0.933766  1.387155 -0.560143 -0.787083"
+       ]
+      }
+     ],
+     "prompt_number": 54
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "df2.date[0]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 52,
+       "text": [
+        "<Timestamp: 2000-01-01 00:00:00>"
+       ]
+      }
+     ],
+     "prompt_number": 52
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "df2 = pd.read_csv('data/test1.csv', parse_dates=['date'], index_col = 'date')\n",
+      "df2"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<div style=\"max-height:1000px;max-width:1500px;overflow:auto;\">\n",
+        "<table border=\"1\" class=\"dataframe\">\n",
+        "  <thead>\n",
+        "    <tr style=\"text-align: right;\">\n",
+        "      <th></th>\n",
+        "      <th>0</th>\n",
+        "      <th>1</th>\n",
+        "      <th>2</th>\n",
+        "      <th>3</th>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>date</th>\n",
+        "      <th></th>\n",
+        "      <th></th>\n",
+        "      <th></th>\n",
+        "      <th></th>\n",
+        "    </tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+        "    <tr>\n",
+        "      <th>2000-01-01</th>\n",
+        "      <td> 1.103763</td>\n",
+        "      <td>-1.909979</td>\n",
+        "      <td>-0.808956</td>\n",
+        "      <td>-2.392629</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-02</th>\n",
+        "      <td> 1.188917</td>\n",
+        "      <td> 0.581120</td>\n",
+        "      <td> 0.861597</td>\n",
+        "      <td>-0.213885</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-03</th>\n",
+        "      <td>-0.964200</td>\n",
+        "      <td> 0.779764</td>\n",
+        "      <td> 1.829062</td>\n",
+        "      <td> 0.322422</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-04</th>\n",
+        "      <td> 0.782130</td>\n",
+        "      <td>-1.720670</td>\n",
+        "      <td>-1.108242</td>\n",
+        "      <td> 1.233489</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-05</th>\n",
+        "      <td>-1.867017</td>\n",
+        "      <td>-0.528368</td>\n",
+        "      <td>-2.488309</td>\n",
+        "      <td> 1.480342</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-06</th>\n",
+        "      <td> 2.569280</td>\n",
+        "      <td>-0.471901</td>\n",
+        "      <td>-0.835033</td>\n",
+        "      <td>-0.532133</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-07</th>\n",
+        "      <td>-0.399323</td>\n",
+        "      <td>-0.676427</td>\n",
+        "      <td>-0.011256</td>\n",
+        "      <td> 0.223252</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-08</th>\n",
+        "      <td> 1.642993</td>\n",
+        "      <td> 1.013420</td>\n",
+        "      <td> 1.435667</td>\n",
+        "      <td>-0.635862</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-09</th>\n",
+        "      <td> 1.147308</td>\n",
+        "      <td> 2.138000</td>\n",
+        "      <td> 0.554171</td>\n",
+        "      <td>-0.255538</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-10</th>\n",
+        "      <td> 0.933766</td>\n",
+        "      <td> 1.387155</td>\n",
+        "      <td>-0.560143</td>\n",
+        "      <td>-0.787083</td>\n",
+        "    </tr>\n",
+        "  </tbody>\n",
+        "</table>\n",
+        "</div>"
+       ],
+       "output_type": "pyout",
+       "prompt_number": 53,
+       "text": [
+        "                   0         1         2         3\n",
+        "date                                              \n",
+        "2000-01-01  1.103763 -1.909979 -0.808956 -2.392629\n",
+        "2000-01-02  1.188917  0.581120  0.861597 -0.213885\n",
+        "2000-01-03 -0.964200  0.779764  1.829062  0.322422\n",
+        "2000-01-04  0.782130 -1.720670 -1.108242  1.233489\n",
+        "2000-01-05 -1.867017 -0.528368 -2.488309  1.480342\n",
+        "2000-01-06  2.569280 -0.471901 -0.835033 -0.532133\n",
+        "2000-01-07 -0.399323 -0.676427 -0.011256  0.223252\n",
+        "2000-01-08  1.642993  1.013420  1.435667 -0.635862\n",
+        "2000-01-09  1.147308  2.138000  0.554171 -0.255538\n",
+        "2000-01-10  0.933766  1.387155 -0.560143 -0.787083"
+       ]
+      }
+     ],
+     "prompt_number": 53
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "df2['1']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 55,
+       "text": [
+        "0   -1.909979\n",
+        "1    0.581120\n",
+        "2    0.779764\n",
+        "3   -1.720670\n",
+        "4   -0.528368\n",
+        "5   -0.471901\n",
+        "6   -0.676427\n",
+        "7    1.013420\n",
+        "8    2.138000\n",
+        "9    1.387155\n",
+        "Name: 1"
+       ]
+      }
+     ],
+     "prompt_number": 55
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "pd.read_csv('data/test2.csv')\n"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<div style=\"max-height:1000px;max-width:1500px;overflow:auto;\">\n",
+        "<table border=\"1\" class=\"dataframe\">\n",
+        "  <thead>\n",
+        "    <tr style=\"text-align: right;\">\n",
+        "      <th></th>\n",
+        "      <th>date</th>\n",
+        "      <th>0</th>\n",
+        "      <th>1</th>\n",
+        "      <th>2</th>\n",
+        "      <th>3</th>\n",
+        "      <th>time</th>\n",
+        "    </tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+        "    <tr>\n",
+        "      <th>0</th>\n",
+        "      <td> 2000-01-01</td>\n",
+        "      <td> 1.103763</td>\n",
+        "      <td>-1.909979</td>\n",
+        "      <td>-0.808956</td>\n",
+        "      <td>-2.392629</td>\n",
+        "      <td> 00:00:00</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>1</th>\n",
+        "      <td> 2000-01-02</td>\n",
+        "      <td> 1.188917</td>\n",
+        "      <td> 0.581120</td>\n",
+        "      <td> 0.861597</td>\n",
+        "      <td>-0.213885</td>\n",
+        "      <td> 00:00:00</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2</th>\n",
+        "      <td> 2000-01-03</td>\n",
+        "      <td>-0.964200</td>\n",
+        "      <td> 0.779764</td>\n",
+        "      <td> 1.829062</td>\n",
+        "      <td> 0.322422</td>\n",
+        "      <td> 00:00:00</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>3</th>\n",
+        "      <td> 2000-01-04</td>\n",
+        "      <td> 0.782130</td>\n",
+        "      <td>-1.720670</td>\n",
+        "      <td>-1.108242</td>\n",
+        "      <td> 1.233489</td>\n",
+        "      <td> 00:00:00</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>4</th>\n",
+        "      <td> 2000-01-05</td>\n",
+        "      <td>-1.867017</td>\n",
+        "      <td>-0.528368</td>\n",
+        "      <td>-2.488309</td>\n",
+        "      <td> 1.480342</td>\n",
+        "      <td> 00:00:00</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>5</th>\n",
+        "      <td> 2000-01-06</td>\n",
+        "      <td> 2.569280</td>\n",
+        "      <td>-0.471901</td>\n",
+        "      <td>-0.835033</td>\n",
+        "      <td>-0.532133</td>\n",
+        "      <td> 00:00:00</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>6</th>\n",
+        "      <td> 2000-01-07</td>\n",
+        "      <td>-0.399323</td>\n",
+        "      <td>-0.676427</td>\n",
+        "      <td>-0.011256</td>\n",
+        "      <td> 0.223252</td>\n",
+        "      <td> 00:00:00</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>7</th>\n",
+        "      <td> 2000-01-08</td>\n",
+        "      <td> 1.642993</td>\n",
+        "      <td> 1.013420</td>\n",
+        "      <td> 1.435667</td>\n",
+        "      <td>-0.635862</td>\n",
+        "      <td> 00:00:00</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>8</th>\n",
+        "      <td> 2000-01-09</td>\n",
+        "      <td> 1.147308</td>\n",
+        "      <td> 2.138000</td>\n",
+        "      <td> 0.554171</td>\n",
+        "      <td>-0.255538</td>\n",
+        "      <td> 00:00:00</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>9</th>\n",
+        "      <td> 2000-01-10</td>\n",
+        "      <td> 0.933766</td>\n",
+        "      <td> 1.387155</td>\n",
+        "      <td>-0.560143</td>\n",
+        "      <td>-0.787083</td>\n",
+        "      <td> 00:00:00</td>\n",
+        "    </tr>\n",
+        "  </tbody>\n",
+        "</table>\n",
+        "</div>"
+       ],
+       "output_type": "pyout",
+       "prompt_number": 56,
+       "text": [
+        "         date         0         1         2         3      time\n",
+        "0  2000-01-01  1.103763 -1.909979 -0.808956 -2.392629  00:00:00\n",
+        "1  2000-01-02  1.188917  0.581120  0.861597 -0.213885  00:00:00\n",
+        "2  2000-01-03 -0.964200  0.779764  1.829062  0.322422  00:00:00\n",
+        "3  2000-01-04  0.782130 -1.720670 -1.108242  1.233489  00:00:00\n",
+        "4  2000-01-05 -1.867017 -0.528368 -2.488309  1.480342  00:00:00\n",
+        "5  2000-01-06  2.569280 -0.471901 -0.835033 -0.532133  00:00:00\n",
+        "6  2000-01-07 -0.399323 -0.676427 -0.011256  0.223252  00:00:00\n",
+        "7  2000-01-08  1.642993  1.013420  1.435667 -0.635862  00:00:00\n",
+        "8  2000-01-09  1.147308  2.138000  0.554171 -0.255538  00:00:00\n",
+        "9  2000-01-10  0.933766  1.387155 -0.560143 -0.787083  00:00:00"
+       ]
+      }
+     ],
+     "prompt_number": 56
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "df4 = pd.read_csv('data/test2.csv', parse_dates=[['date','time']], index_col = 'date_time')\n",
+      "df4"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<div style=\"max-height:1000px;max-width:1500px;overflow:auto;\">\n",
+        "<table border=\"1\" class=\"dataframe\">\n",
+        "  <thead>\n",
+        "    <tr style=\"text-align: right;\">\n",
+        "      <th></th>\n",
+        "      <th>0</th>\n",
+        "      <th>1</th>\n",
+        "      <th>2</th>\n",
+        "      <th>3</th>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>date_time</th>\n",
+        "      <th></th>\n",
+        "      <th></th>\n",
+        "      <th></th>\n",
+        "      <th></th>\n",
+        "    </tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+        "    <tr>\n",
+        "      <th>2000-01-01</th>\n",
+        "      <td> 1.103763</td>\n",
+        "      <td>-1.909979</td>\n",
+        "      <td>-0.808956</td>\n",
+        "      <td>-2.392629</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-02</th>\n",
+        "      <td> 1.188917</td>\n",
+        "      <td> 0.581120</td>\n",
+        "      <td> 0.861597</td>\n",
+        "      <td>-0.213885</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-03</th>\n",
+        "      <td>-0.964200</td>\n",
+        "      <td> 0.779764</td>\n",
+        "      <td> 1.829062</td>\n",
+        "      <td> 0.322422</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-04</th>\n",
+        "      <td> 0.782130</td>\n",
+        "      <td>-1.720670</td>\n",
+        "      <td>-1.108242</td>\n",
+        "      <td> 1.233489</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-05</th>\n",
+        "      <td>-1.867017</td>\n",
+        "      <td>-0.528368</td>\n",
+        "      <td>-2.488309</td>\n",
+        "      <td> 1.480342</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-06</th>\n",
+        "      <td> 2.569280</td>\n",
+        "      <td>-0.471901</td>\n",
+        "      <td>-0.835033</td>\n",
+        "      <td>-0.532133</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-07</th>\n",
+        "      <td>-0.399323</td>\n",
+        "      <td>-0.676427</td>\n",
+        "      <td>-0.011256</td>\n",
+        "      <td> 0.223252</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-08</th>\n",
+        "      <td> 1.642993</td>\n",
+        "      <td> 1.013420</td>\n",
+        "      <td> 1.435667</td>\n",
+        "      <td>-0.635862</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-09</th>\n",
+        "      <td> 1.147308</td>\n",
+        "      <td> 2.138000</td>\n",
+        "      <td> 0.554171</td>\n",
+        "      <td>-0.255538</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2000-01-10</th>\n",
+        "      <td> 0.933766</td>\n",
+        "      <td> 1.387155</td>\n",
+        "      <td>-0.560143</td>\n",
+        "      <td>-0.787083</td>\n",
+        "    </tr>\n",
+        "  </tbody>\n",
+        "</table>\n",
+        "</div>"
+       ],
+       "output_type": "pyout",
+       "prompt_number": 58,
+       "text": [
+        "                   0         1         2         3\n",
+        "date_time                                         \n",
+        "2000-01-01  1.103763 -1.909979 -0.808956 -2.392629\n",
+        "2000-01-02  1.188917  0.581120  0.861597 -0.213885\n",
+        "2000-01-03 -0.964200  0.779764  1.829062  0.322422\n",
+        "2000-01-04  0.782130 -1.720670 -1.108242  1.233489\n",
+        "2000-01-05 -1.867017 -0.528368 -2.488309  1.480342\n",
+        "2000-01-06  2.569280 -0.471901 -0.835033 -0.532133\n",
+        "2000-01-07 -0.399323 -0.676427 -0.011256  0.223252\n",
+        "2000-01-08  1.642993  1.013420  1.435667 -0.635862\n",
+        "2000-01-09  1.147308  2.138000  0.554171 -0.255538\n",
+        "2000-01-10  0.933766  1.387155 -0.560143 -0.787083"
+       ]
+      }
+     ],
+     "prompt_number": 58
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "pd.read_csv?"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 61
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    }
+   ],
+   "metadata": {}
+  }
+ ]
+}

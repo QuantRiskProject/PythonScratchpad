@@ -1,0 +1,1544 @@
+{
+ "metadata": {
+  "name": "pandastutorial2"
+ },
+ "nbformat": 3,
+ "nbformat_minor": 0,
+ "worksheets": [
+  {
+   "cells": [
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "#date and time types\n",
+      "#why is there a timestamp object at all?\n",
+      "\n",
+      "#datetime64\n",
+      "#time is represented as a 64-bit integer\n",
+      "#supports nanoseconds, ns units\n",
+      "#limits pandas support to 600 years, 1700-2300\n",
+      "\n",
+      "#Class DatetimeIndex\n",
+      "#scalar values come out as a timestamp, supports duplicates\n",
+      "\n",
+      "#pandas.Timestamp\n",
+      "#subclass of Datetime that supports nanoseconds\n",
+      "import pandas as pd\n",
+      "pd.Timestamp.mro()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 2,
+       "text": [
+        "[pandas.tslib.Timestamp,\n",
+        " pandas.tslib._Timestamp,\n",
+        " datetime.datetime,\n",
+        " datetime.date,\n",
+        " object]"
+       ]
+      }
+     ],
+     "prompt_number": 2
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "stamp = pd.Timestamp('4/12/2013 02:35:00')"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 3
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "stamp"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 4,
+       "text": [
+        "<Timestamp: 2013-04-12 02:35:00>"
+       ]
+      }
+     ],
+     "prompt_number": 4
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "stamp.value"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 5,
+       "text": [
+        "1365734100000000000L"
+       ]
+      }
+     ],
+     "prompt_number": 5
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "from datetime import datetime"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 6
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "dates = ['2013-04-05', '2013-09-28']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 7
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "dates"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 8,
+       "text": [
+        "['2013-04-05', '2013-09-28']"
+       ]
+      }
+     ],
+     "prompt_number": 8
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "Series(range(3), index=dates)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "ename": "NameError",
+       "evalue": "name 'Series' is not defined",
+       "output_type": "pyerr",
+       "traceback": [
+        "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+        "\u001b[1;32m<ipython-input-9-5d075ccf213a>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mSeries\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mrange\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;36m3\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mindex\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0mdates\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+        "\u001b[1;31mNameError\u001b[0m: name 'Series' is not defined"
+       ]
+      }
+     ],
+     "prompt_number": 9
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "from pandas import Series, DataFrame"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 10
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "Series(range(2), index=dates)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 13,
+       "text": [
+        "2013-04-05    0\n",
+        "2013-09-28    1"
+       ]
+      }
+     ],
+     "prompt_number": 13
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "to_daytime?"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "stream",
+       "stream": "stdout",
+       "text": [
+        "Object `to_daytime` not found.\n"
+       ]
+      }
+     ],
+     "prompt_number": 14
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "pd.to_datetime?"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 16
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "list(pd.to_datetime(dates, dayfirst=True))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 19,
+       "text": [
+        "[<Timestamp: 2013-04-05 00:00:00>, <Timestamp: 2013-09-28 00:00:00>]"
+       ]
+      }
+     ],
+     "prompt_number": 19
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "rng = pd.date_range('2013-04-12', periods = 1000)\n",
+      "rng"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 20,
+       "text": [
+        "<class 'pandas.tseries.index.DatetimeIndex'>\n",
+        "[2013-04-12 00:00:00, ..., 2016-01-06 00:00:00]\n",
+        "Length: 1000, Freq: D, Timezone: None"
+       ]
+      }
+     ],
+     "prompt_number": 20
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts=Series(np.arange(1000), index = rng)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 21
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 22,
+       "text": [
+        "2013-04-12     0\n",
+        "2013-04-13     1\n",
+        "2013-04-14     2\n",
+        "2013-04-15     3\n",
+        "2013-04-16     4\n",
+        "2013-04-17     5\n",
+        "2013-04-18     6\n",
+        "2013-04-19     7\n",
+        "2013-04-20     8\n",
+        "2013-04-21     9\n",
+        "2013-04-22    10\n",
+        "2013-04-23    11\n",
+        "2013-04-24    12\n",
+        "2013-04-25    13\n",
+        "2013-04-26    14\n",
+        "...\n",
+        "2015-12-23    985\n",
+        "2015-12-24    986\n",
+        "2015-12-25    987\n",
+        "2015-12-26    988\n",
+        "2015-12-27    989\n",
+        "2015-12-28    990\n",
+        "2015-12-29    991\n",
+        "2015-12-30    992\n",
+        "2015-12-31    993\n",
+        "2016-01-01    994\n",
+        "2016-01-02    995\n",
+        "2016-01-03    996\n",
+        "2016-01-04    997\n",
+        "2016-01-05    998\n",
+        "2016-01-06    999\n",
+        "Freq: D, Length: 1000"
+       ]
+      }
+     ],
+     "prompt_number": 22
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts[datetime(2014, 11, 27)]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 24,
+       "text": [
+        "594"
+       ]
+      }
+     ],
+     "prompt_number": 24
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts['2014-11-27']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 26,
+       "text": [
+        "594"
+       ]
+      }
+     ],
+     "prompt_number": 26
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts[:'2013-11-27']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 28,
+       "text": [
+        "2013-04-12     0\n",
+        "2013-04-13     1\n",
+        "2013-04-14     2\n",
+        "2013-04-15     3\n",
+        "2013-04-16     4\n",
+        "2013-04-17     5\n",
+        "2013-04-18     6\n",
+        "2013-04-19     7\n",
+        "2013-04-20     8\n",
+        "2013-04-21     9\n",
+        "2013-04-22    10\n",
+        "2013-04-23    11\n",
+        "2013-04-24    12\n",
+        "2013-04-25    13\n",
+        "2013-04-26    14\n",
+        "...\n",
+        "2013-11-13    215\n",
+        "2013-11-14    216\n",
+        "2013-11-15    217\n",
+        "2013-11-16    218\n",
+        "2013-11-17    219\n",
+        "2013-11-18    220\n",
+        "2013-11-19    221\n",
+        "2013-11-20    222\n",
+        "2013-11-21    223\n",
+        "2013-11-22    224\n",
+        "2013-11-23    225\n",
+        "2013-11-24    226\n",
+        "2013-11-25    227\n",
+        "2013-11-26    228\n",
+        "2013-11-27    229\n",
+        "Freq: D, Length: 230"
+       ]
+      }
+     ],
+     "prompt_number": 28
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "#note that slicing in pandas is index inclusive."
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 29
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts2 = ts.take(np.random.permutation(len(ts)))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 30
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts2['2012-04-15':'2016-01-01']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "ename": "TimeSeriesError",
+       "evalue": "Partial indexing only valid for ordered time series.",
+       "output_type": "pyerr",
+       "traceback": [
+        "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m\n\u001b[1;31mTimeSeriesError\u001b[0m                           Traceback (most recent call last)",
+        "\u001b[1;32m<ipython-input-31-e4107ab5ee59>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m()\u001b[0m\n\u001b[1;32m----> 1\u001b[1;33m \u001b[0mts2\u001b[0m\u001b[1;33m[\u001b[0m\u001b[1;34m'2012-04-15'\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;34m'2016-01-01'\u001b[0m\u001b[1;33m]\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m",
+        "\u001b[1;32mC:\\Users\\nooree\\AppData\\Local\\Enthought\\Canopy\\User\\lib\\site-packages\\pandas\\core\\series.pyc\u001b[0m in \u001b[0;36m__getitem__\u001b[1;34m(self, key)\u001b[0m\n\u001b[0;32m    525\u001b[0m             \u001b[0mkey\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mnp\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0masarray\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mdtype\u001b[0m\u001b[1;33m=\u001b[0m\u001b[0mbool\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    526\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 527\u001b[1;33m         \u001b[1;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_get_with\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    528\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    529\u001b[0m     \u001b[1;32mdef\u001b[0m \u001b[0m_get_with\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mself\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mkey\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+        "\u001b[1;32mC:\\Users\\nooree\\AppData\\Local\\Enthought\\Canopy\\User\\lib\\site-packages\\pandas\\core\\series.pyc\u001b[0m in \u001b[0;36m_get_with\u001b[1;34m(self, key)\u001b[0m\n\u001b[0;32m    538\u001b[0m                 \u001b[0mindexer\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mkey\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    539\u001b[0m             \u001b[1;32melse\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 540\u001b[1;33m                 \u001b[0mindexer\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mix\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_convert_to_indexer\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0maxis\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;36m0\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    541\u001b[0m             \u001b[1;32mreturn\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_get_values\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mindexer\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    542\u001b[0m         \u001b[1;32melse\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+        "\u001b[1;32mC:\\Users\\nooree\\AppData\\Local\\Enthought\\Canopy\\User\\lib\\site-packages\\pandas\\core\\indexing.pyc\u001b[0m in \u001b[0;36m_convert_to_indexer\u001b[1;34m(self, obj, axis)\u001b[0m\n\u001b[0;32m    476\u001b[0m             \u001b[1;32melse\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    477\u001b[0m                 \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m--> 478\u001b[1;33m                     \u001b[0mi\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mj\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mlabels\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mslice_locs\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mstart\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mstop\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m    479\u001b[0m                     \u001b[0mslicer\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mslice\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mi\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mj\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mobj\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mstep\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m    480\u001b[0m                 \u001b[1;32mexcept\u001b[0m \u001b[0mException\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+        "\u001b[1;32mC:\\Users\\nooree\\AppData\\Local\\Enthought\\Canopy\\User\\lib\\site-packages\\pandas\\tseries\\index.pyc\u001b[0m in \u001b[0;36mslice_locs\u001b[1;34m(self, start, end)\u001b[0m\n\u001b[0;32m   1151\u001b[0m             \u001b[1;32mtry\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1152\u001b[0m                 \u001b[1;32mif\u001b[0m \u001b[0mstart\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m-> 1153\u001b[1;33m                     \u001b[0mstart_loc\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_get_string_slice\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mstart\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mstart\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m   1154\u001b[0m                 \u001b[1;32melse\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1155\u001b[0m                     \u001b[0mstart_loc\u001b[0m \u001b[1;33m=\u001b[0m \u001b[1;36m0\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n",
+        "\u001b[1;32mC:\\Users\\nooree\\AppData\\Local\\Enthought\\Canopy\\User\\lib\\site-packages\\pandas\\tseries\\index.pyc\u001b[0m in \u001b[0;36m_get_string_slice\u001b[1;34m(self, key)\u001b[0m\n\u001b[0;32m   1141\u001b[0m         \u001b[0masdt\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mparsed\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mreso\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mparse_time_string\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mkey\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mfreq\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1142\u001b[0m         \u001b[0mkey\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0masdt\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m-> 1143\u001b[1;33m         \u001b[0mloc\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0m_partial_date_slice\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mreso\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mparsed\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m   1144\u001b[0m         \u001b[1;32mreturn\u001b[0m \u001b[0mloc\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1145\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+        "\u001b[1;32mC:\\Users\\nooree\\AppData\\Local\\Enthought\\Canopy\\User\\lib\\site-packages\\pandas\\tseries\\index.pyc\u001b[0m in \u001b[0;36m_partial_date_slice\u001b[1;34m(self, reso, parsed)\u001b[0m\n\u001b[0;32m   1039\u001b[0m     \u001b[1;32mdef\u001b[0m \u001b[0m_partial_date_slice\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mself\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mreso\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mparsed\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m   1040\u001b[0m         \u001b[1;32mif\u001b[0m \u001b[1;32mnot\u001b[0m \u001b[0mself\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mis_monotonic\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m-> 1041\u001b[1;33m             raise TimeSeriesError('Partial indexing only valid for ordered '\n\u001b[0m\u001b[0;32m   1042\u001b[0m                                   'time series.')\n\u001b[0;32m   1043\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+        "\u001b[1;31mTimeSeriesError\u001b[0m: Partial indexing only valid for ordered time series."
+       ]
+      }
+     ],
+     "prompt_number": 31
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts3 = ts2.sort_index()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 32
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts3['2015-07']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 34,
+       "text": [
+        "2015-07-01    810\n",
+        "2015-07-02    811\n",
+        "2015-07-03    812\n",
+        "2015-07-04    813\n",
+        "2015-07-05    814\n",
+        "2015-07-06    815\n",
+        "2015-07-07    816\n",
+        "2015-07-08    817\n",
+        "2015-07-09    818\n",
+        "2015-07-10    819\n",
+        "2015-07-11    820\n",
+        "2015-07-12    821\n",
+        "2015-07-13    822\n",
+        "2015-07-14    823\n",
+        "2015-07-15    824\n",
+        "2015-07-16    825\n",
+        "2015-07-17    826\n",
+        "2015-07-18    827\n",
+        "2015-07-19    828\n",
+        "2015-07-20    829\n",
+        "2015-07-21    830\n",
+        "2015-07-22    831\n",
+        "2015-07-23    832\n",
+        "2015-07-24    833\n",
+        "2015-07-25    834\n",
+        "2015-07-26    835\n",
+        "2015-07-27    836\n",
+        "2015-07-28    837\n",
+        "2015-07-29    838\n",
+        "2015-07-30    839\n",
+        "2015-07-31    840"
+       ]
+      }
+     ],
+     "prompt_number": 34
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "df = DataFrame(np.arange(4000).reshape((1000,4)), index=rng, columns = ['PA', 'FL', 'CA', 'IL'])\n",
+      "df.head()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<div style=\"max-height:1000px;max-width:1500px;overflow:auto;\">\n",
+        "<table border=\"1\" class=\"dataframe\">\n",
+        "  <thead>\n",
+        "    <tr style=\"text-align: right;\">\n",
+        "      <th></th>\n",
+        "      <th>PA</th>\n",
+        "      <th>FL</th>\n",
+        "      <th>CA</th>\n",
+        "      <th>IL</th>\n",
+        "    </tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+        "    <tr>\n",
+        "      <th>2013-04-12</th>\n",
+        "      <td>  0</td>\n",
+        "      <td>  1</td>\n",
+        "      <td>  2</td>\n",
+        "      <td>  3</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2013-04-13</th>\n",
+        "      <td>  4</td>\n",
+        "      <td>  5</td>\n",
+        "      <td>  6</td>\n",
+        "      <td>  7</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2013-04-14</th>\n",
+        "      <td>  8</td>\n",
+        "      <td>  9</td>\n",
+        "      <td> 10</td>\n",
+        "      <td> 11</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2013-04-15</th>\n",
+        "      <td> 12</td>\n",
+        "      <td> 13</td>\n",
+        "      <td> 14</td>\n",
+        "      <td> 15</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2013-04-16</th>\n",
+        "      <td> 16</td>\n",
+        "      <td> 17</td>\n",
+        "      <td> 18</td>\n",
+        "      <td> 19</td>\n",
+        "    </tr>\n",
+        "  </tbody>\n",
+        "</table>\n",
+        "</div>"
+       ],
+       "output_type": "pyout",
+       "prompt_number": 38,
+       "text": [
+        "            PA  FL  CA  IL\n",
+        "2013-04-12   0   1   2   3\n",
+        "2013-04-13   4   5   6   7\n",
+        "2013-04-14   8   9  10  11\n",
+        "2013-04-15  12  13  14  15\n",
+        "2013-04-16  16  17  18  19"
+       ]
+      }
+     ],
+     "prompt_number": 38
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "df.ix['2014-07']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<div style=\"max-height:1000px;max-width:1500px;overflow:auto;\">\n",
+        "<table border=\"1\" class=\"dataframe\">\n",
+        "  <thead>\n",
+        "    <tr style=\"text-align: right;\">\n",
+        "      <th></th>\n",
+        "      <th>PA</th>\n",
+        "      <th>FL</th>\n",
+        "      <th>CA</th>\n",
+        "      <th>IL</th>\n",
+        "    </tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+        "    <tr>\n",
+        "      <th>2014-07-01</th>\n",
+        "      <td> 1780</td>\n",
+        "      <td> 1781</td>\n",
+        "      <td> 1782</td>\n",
+        "      <td> 1783</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-02</th>\n",
+        "      <td> 1784</td>\n",
+        "      <td> 1785</td>\n",
+        "      <td> 1786</td>\n",
+        "      <td> 1787</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-03</th>\n",
+        "      <td> 1788</td>\n",
+        "      <td> 1789</td>\n",
+        "      <td> 1790</td>\n",
+        "      <td> 1791</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-04</th>\n",
+        "      <td> 1792</td>\n",
+        "      <td> 1793</td>\n",
+        "      <td> 1794</td>\n",
+        "      <td> 1795</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-05</th>\n",
+        "      <td> 1796</td>\n",
+        "      <td> 1797</td>\n",
+        "      <td> 1798</td>\n",
+        "      <td> 1799</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-06</th>\n",
+        "      <td> 1800</td>\n",
+        "      <td> 1801</td>\n",
+        "      <td> 1802</td>\n",
+        "      <td> 1803</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-07</th>\n",
+        "      <td> 1804</td>\n",
+        "      <td> 1805</td>\n",
+        "      <td> 1806</td>\n",
+        "      <td> 1807</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-08</th>\n",
+        "      <td> 1808</td>\n",
+        "      <td> 1809</td>\n",
+        "      <td> 1810</td>\n",
+        "      <td> 1811</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-09</th>\n",
+        "      <td> 1812</td>\n",
+        "      <td> 1813</td>\n",
+        "      <td> 1814</td>\n",
+        "      <td> 1815</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-10</th>\n",
+        "      <td> 1816</td>\n",
+        "      <td> 1817</td>\n",
+        "      <td> 1818</td>\n",
+        "      <td> 1819</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-11</th>\n",
+        "      <td> 1820</td>\n",
+        "      <td> 1821</td>\n",
+        "      <td> 1822</td>\n",
+        "      <td> 1823</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-12</th>\n",
+        "      <td> 1824</td>\n",
+        "      <td> 1825</td>\n",
+        "      <td> 1826</td>\n",
+        "      <td> 1827</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-13</th>\n",
+        "      <td> 1828</td>\n",
+        "      <td> 1829</td>\n",
+        "      <td> 1830</td>\n",
+        "      <td> 1831</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-14</th>\n",
+        "      <td> 1832</td>\n",
+        "      <td> 1833</td>\n",
+        "      <td> 1834</td>\n",
+        "      <td> 1835</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-15</th>\n",
+        "      <td> 1836</td>\n",
+        "      <td> 1837</td>\n",
+        "      <td> 1838</td>\n",
+        "      <td> 1839</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-16</th>\n",
+        "      <td> 1840</td>\n",
+        "      <td> 1841</td>\n",
+        "      <td> 1842</td>\n",
+        "      <td> 1843</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-17</th>\n",
+        "      <td> 1844</td>\n",
+        "      <td> 1845</td>\n",
+        "      <td> 1846</td>\n",
+        "      <td> 1847</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-18</th>\n",
+        "      <td> 1848</td>\n",
+        "      <td> 1849</td>\n",
+        "      <td> 1850</td>\n",
+        "      <td> 1851</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-19</th>\n",
+        "      <td> 1852</td>\n",
+        "      <td> 1853</td>\n",
+        "      <td> 1854</td>\n",
+        "      <td> 1855</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-20</th>\n",
+        "      <td> 1856</td>\n",
+        "      <td> 1857</td>\n",
+        "      <td> 1858</td>\n",
+        "      <td> 1859</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-21</th>\n",
+        "      <td> 1860</td>\n",
+        "      <td> 1861</td>\n",
+        "      <td> 1862</td>\n",
+        "      <td> 1863</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-22</th>\n",
+        "      <td> 1864</td>\n",
+        "      <td> 1865</td>\n",
+        "      <td> 1866</td>\n",
+        "      <td> 1867</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-23</th>\n",
+        "      <td> 1868</td>\n",
+        "      <td> 1869</td>\n",
+        "      <td> 1870</td>\n",
+        "      <td> 1871</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-24</th>\n",
+        "      <td> 1872</td>\n",
+        "      <td> 1873</td>\n",
+        "      <td> 1874</td>\n",
+        "      <td> 1875</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-25</th>\n",
+        "      <td> 1876</td>\n",
+        "      <td> 1877</td>\n",
+        "      <td> 1878</td>\n",
+        "      <td> 1879</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-26</th>\n",
+        "      <td> 1880</td>\n",
+        "      <td> 1881</td>\n",
+        "      <td> 1882</td>\n",
+        "      <td> 1883</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-27</th>\n",
+        "      <td> 1884</td>\n",
+        "      <td> 1885</td>\n",
+        "      <td> 1886</td>\n",
+        "      <td> 1887</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-28</th>\n",
+        "      <td> 1888</td>\n",
+        "      <td> 1889</td>\n",
+        "      <td> 1890</td>\n",
+        "      <td> 1891</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-29</th>\n",
+        "      <td> 1892</td>\n",
+        "      <td> 1893</td>\n",
+        "      <td> 1894</td>\n",
+        "      <td> 1895</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-30</th>\n",
+        "      <td> 1896</td>\n",
+        "      <td> 1897</td>\n",
+        "      <td> 1898</td>\n",
+        "      <td> 1899</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2014-07-31</th>\n",
+        "      <td> 1900</td>\n",
+        "      <td> 1901</td>\n",
+        "      <td> 1902</td>\n",
+        "      <td> 1903</td>\n",
+        "    </tr>\n",
+        "  </tbody>\n",
+        "</table>\n",
+        "</div>"
+       ],
+       "output_type": "pyout",
+       "prompt_number": 39,
+       "text": [
+        "              PA    FL    CA    IL\n",
+        "2014-07-01  1780  1781  1782  1783\n",
+        "2014-07-02  1784  1785  1786  1787\n",
+        "2014-07-03  1788  1789  1790  1791\n",
+        "2014-07-04  1792  1793  1794  1795\n",
+        "2014-07-05  1796  1797  1798  1799\n",
+        "2014-07-06  1800  1801  1802  1803\n",
+        "2014-07-07  1804  1805  1806  1807\n",
+        "2014-07-08  1808  1809  1810  1811\n",
+        "2014-07-09  1812  1813  1814  1815\n",
+        "2014-07-10  1816  1817  1818  1819\n",
+        "2014-07-11  1820  1821  1822  1823\n",
+        "2014-07-12  1824  1825  1826  1827\n",
+        "2014-07-13  1828  1829  1830  1831\n",
+        "2014-07-14  1832  1833  1834  1835\n",
+        "2014-07-15  1836  1837  1838  1839\n",
+        "2014-07-16  1840  1841  1842  1843\n",
+        "2014-07-17  1844  1845  1846  1847\n",
+        "2014-07-18  1848  1849  1850  1851\n",
+        "2014-07-19  1852  1853  1854  1855\n",
+        "2014-07-20  1856  1857  1858  1859\n",
+        "2014-07-21  1860  1861  1862  1863\n",
+        "2014-07-22  1864  1865  1866  1867\n",
+        "2014-07-23  1868  1869  1870  1871\n",
+        "2014-07-24  1872  1873  1874  1875\n",
+        "2014-07-25  1876  1877  1878  1879\n",
+        "2014-07-26  1880  1881  1882  1883\n",
+        "2014-07-27  1884  1885  1886  1887\n",
+        "2014-07-28  1888  1889  1890  1891\n",
+        "2014-07-29  1892  1893  1894  1895\n",
+        "2014-07-30  1896  1897  1898  1899\n",
+        "2014-07-31  1900  1901  1902  1903"
+       ]
+      }
+     ],
+     "prompt_number": 39
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "df.ix['2014-07-20']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 40,
+       "text": [
+        "PA    1856\n",
+        "FL    1857\n",
+        "CA    1858\n",
+        "IL    1859\n",
+        "Name: 2014-07-20 00:00:00"
+       ]
+      }
+     ],
+     "prompt_number": 40
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "list(pd.date_range('2000-01-01', periods=5, freq='W-TUE'))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 44,
+       "text": [
+        "[<Timestamp: 2000-01-04 00:00:00>,\n",
+        " <Timestamp: 2000-01-11 00:00:00>,\n",
+        " <Timestamp: 2000-01-18 00:00:00>,\n",
+        " <Timestamp: 2000-01-25 00:00:00>,\n",
+        " <Timestamp: 2000-02-01 00:00:00>]"
+       ]
+      }
+     ],
+     "prompt_number": 44
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "#resampling\n",
+      "temprange = pd.DateRange('2013-09-28','2013-10-03')\n",
+      "len(temprange)\n",
+      "a = [100, 95, 104, 99, 94, 97]\n",
+      "sd = [90,85,84,86,88,92]\n",
+      "atemps = Series(a[:len(temprange)], index = temprange)\n",
+      "sdtemps = Series(sd[:len(temprange)], index = temprange)\n",
+      "temps = DataFrame({'Austin': atemps, 'San Diego': sdtemps})\n",
+      "temps"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "html": [
+        "<div style=\"max-height:1000px;max-width:1500px;overflow:auto;\">\n",
+        "<table border=\"1\" class=\"dataframe\">\n",
+        "  <thead>\n",
+        "    <tr style=\"text-align: right;\">\n",
+        "      <th></th>\n",
+        "      <th>Austin</th>\n",
+        "      <th>San Diego</th>\n",
+        "    </tr>\n",
+        "  </thead>\n",
+        "  <tbody>\n",
+        "    <tr>\n",
+        "      <th>2013-09-30</th>\n",
+        "      <td> 100</td>\n",
+        "      <td> 90</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2013-10-01</th>\n",
+        "      <td>  95</td>\n",
+        "      <td> 85</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2013-10-02</th>\n",
+        "      <td> 104</td>\n",
+        "      <td> 84</td>\n",
+        "    </tr>\n",
+        "    <tr>\n",
+        "      <th>2013-10-03</th>\n",
+        "      <td>  99</td>\n",
+        "      <td> 86</td>\n",
+        "    </tr>\n",
+        "  </tbody>\n",
+        "</table>\n",
+        "</div>"
+       ],
+       "output_type": "pyout",
+       "prompt_number": 51,
+       "text": [
+        "            Austin  San Diego\n",
+        "2013-09-30     100         90\n",
+        "2013-10-01      95         85\n",
+        "2013-10-02     104         84\n",
+        "2013-10-03      99         86"
+       ]
+      }
+     ],
+     "prompt_number": 51
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "sdtemps = temps['San Diego'].drop(temps.index[2])\n",
+      "sdtemps"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 52,
+       "text": [
+        "2013-09-30    90\n",
+        "2013-10-01    85\n",
+        "2013-10-03    86\n",
+        "Name: San Diego"
+       ]
+      }
+     ],
+     "prompt_number": 52
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "diff = atemps - sdtemps\n",
+      "diff.dropna()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 55,
+       "text": [
+        "2013-09-30    10\n",
+        "2013-10-01    10\n",
+        "2013-10-03    13"
+       ]
+      }
+     ],
+     "prompt_number": 55
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "diff.fillna(0)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 56,
+       "text": [
+        "2013-09-30    10\n",
+        "2013-10-01    10\n",
+        "2013-10-02     0\n",
+        "2013-10-03    13"
+       ]
+      }
+     ],
+     "prompt_number": 56
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "diff.fillna(method = 'ffill')\n",
+      "\n",
+      "#resample how mean median max\n"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 57,
+       "text": [
+        "2013-09-30    10\n",
+        "2013-10-01    10\n",
+        "2013-10-02    10\n",
+        "2013-10-03    13"
+       ]
+      }
+     ],
+     "prompt_number": 57
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "pd.Timestamp.mro()"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 58,
+       "text": [
+        "[pandas.tslib.Timestamp,\n",
+        " pandas.tslib._Timestamp,\n",
+        " datetime.datetime,\n",
+        " datetime.date,\n",
+        " object]"
+       ]
+      }
+     ],
+     "prompt_number": 58
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "nowstamp = pd.Timestamp(datetime.now())\n",
+      "nowstamp.strftime('%y%m%d')"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 68,
+       "text": [
+        "'130413'"
+       ]
+      }
+     ],
+     "prompt_number": 68
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "nowstamp.value"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 61,
+       "text": [
+        "1365794567488000000L"
+       ]
+      }
+     ],
+     "prompt_number": 61
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "#Timestamp \n",
+      "dates = ['2012-07-16', '2012-07-18', '2012-07-20']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [],
+     "prompt_number": 62
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "pd.to_datetime(['17-07-2014', '31-12-2015'], dayfirst=True)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 69,
+       "text": [
+        "<class 'pandas.tseries.index.DatetimeIndex'>\n",
+        "[2014-07-17 00:00:00, 2015-12-31 00:00:00]\n",
+        "Length: 2, Freq: None, Timezone: None"
+       ]
+      }
+     ],
+     "prompt_number": 69
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "pd.DatetimeIndex(dates)[0]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 66,
+       "text": [
+        "<Timestamp: 2012-07-16 00:00:00>"
+       ]
+      }
+     ],
+     "prompt_number": 66
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "Series(range(3), index=dates).index[0]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 70,
+       "text": [
+        "'2012-07-16'"
+       ]
+      }
+     ],
+     "prompt_number": 70
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "#to convert strings to datetime index\n",
+      "pd.DatetimeIndex(dates)[0]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 72,
+       "text": [
+        "<Timestamp: 2012-07-16 00:00:00>"
+       ]
+      }
+     ],
+     "prompt_number": 72
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "list(pd.to_datetime(dates))"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 74,
+       "text": [
+        "[<Timestamp: 2012-07-16 00:00:00>,\n",
+        " <Timestamp: 2012-07-18 00:00:00>,\n",
+        " <Timestamp: 2012-07-20 00:00:00>]"
+       ]
+      }
+     ],
+     "prompt_number": 74
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "Series(range(3), index=pd.to_datetime(dates)).index[0]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 75,
+       "text": [
+        "<Timestamp: 2012-07-16 00:00:00>"
+       ]
+      }
+     ],
+     "prompt_number": 75
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "isinstance(Series(range(3), index=pd.to_datetime(dates)).index[0], datetime)"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 77,
+       "text": [
+        "True"
+       ]
+      }
+     ],
+     "prompt_number": 77
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Indexing\n",
+      "========"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "rng = pd.date_range('2013-04-13', periods = 1000)\n",
+      "rng"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 80,
+       "text": [
+        "<class 'pandas.tseries.index.DatetimeIndex'>\n",
+        "[2013-04-13 00:00:00, ..., 2016-01-07 00:00:00]\n",
+        "Length: 1000, Freq: D, Timezone: None"
+       ]
+      }
+     ],
+     "prompt_number": 80
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "**pd.date_range** creates a series of timestamps"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts = Series(np.arange(1000), index = rng)\n",
+      "ts"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 81,
+       "text": [
+        "2013-04-13     0\n",
+        "2013-04-14     1\n",
+        "2013-04-15     2\n",
+        "2013-04-16     3\n",
+        "2013-04-17     4\n",
+        "2013-04-18     5\n",
+        "2013-04-19     6\n",
+        "2013-04-20     7\n",
+        "2013-04-21     8\n",
+        "2013-04-22     9\n",
+        "2013-04-23    10\n",
+        "2013-04-24    11\n",
+        "2013-04-25    12\n",
+        "2013-04-26    13\n",
+        "2013-04-27    14\n",
+        "...\n",
+        "2015-12-24    985\n",
+        "2015-12-25    986\n",
+        "2015-12-26    987\n",
+        "2015-12-27    988\n",
+        "2015-12-28    989\n",
+        "2015-12-29    990\n",
+        "2015-12-30    991\n",
+        "2015-12-31    992\n",
+        "2016-01-01    993\n",
+        "2016-01-02    994\n",
+        "2016-01-03    995\n",
+        "2016-01-04    996\n",
+        "2016-01-05    997\n",
+        "2016-01-06    998\n",
+        "2016-01-07    999\n",
+        "Freq: D, Length: 1000"
+       ]
+      }
+     ],
+     "prompt_number": 81
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Can alter print displays, length is only shown in the abbreviated ts.\n",
+      "Here are the **ways to access values in a ts:**"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts[pd.to_datetime('2014, 11, 27')]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 85,
+       "text": [
+        "593"
+       ]
+      }
+     ],
+     "prompt_number": 85
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts[ts.index[593]]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 89,
+       "text": [
+        "593"
+       ]
+      }
+     ],
+     "prompt_number": 89
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts[datetime(2014,11,27)]"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 90,
+       "text": [
+        "593"
+       ]
+      }
+     ],
+     "prompt_number": 90
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts['2014-11-27']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 91,
+       "text": [
+        "593"
+       ]
+      }
+     ],
+     "prompt_number": 91
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "To select data up to and including:"
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [
+      "ts[:'2013-10-31']"
+     ],
+     "language": "python",
+     "metadata": {},
+     "outputs": [
+      {
+       "output_type": "pyout",
+       "prompt_number": 93,
+       "text": [
+        "2013-04-13     0\n",
+        "2013-04-14     1\n",
+        "2013-04-15     2\n",
+        "2013-04-16     3\n",
+        "2013-04-17     4\n",
+        "2013-04-18     5\n",
+        "2013-04-19     6\n",
+        "2013-04-20     7\n",
+        "2013-04-21     8\n",
+        "2013-04-22     9\n",
+        "2013-04-23    10\n",
+        "2013-04-24    11\n",
+        "2013-04-25    12\n",
+        "2013-04-26    13\n",
+        "2013-04-27    14\n",
+        "...\n",
+        "2013-10-17    187\n",
+        "2013-10-18    188\n",
+        "2013-10-19    189\n",
+        "2013-10-20    190\n",
+        "2013-10-21    191\n",
+        "2013-10-22    192\n",
+        "2013-10-23    193\n",
+        "2013-10-24    194\n",
+        "2013-10-25    195\n",
+        "2013-10-26    196\n",
+        "2013-10-27    197\n",
+        "2013-10-28    198\n",
+        "2013-10-29    199\n",
+        "2013-10-30    200\n",
+        "2013-10-31    201\n",
+        "Freq: D, Length: 202"
+       ]
+      }
+     ],
+     "prompt_number": 93
+    },
+    {
+     "cell_type": "markdown",
+     "metadata": {},
+     "source": [
+      "Slicing with Series or DaraFrames in Pandas, note that labels use **inclusive** enpoints, unlike slicing in Python."
+     ]
+    },
+    {
+     "cell_type": "code",
+     "collapsed": false,
+     "input": [],
+     "language": "python",
+     "metadata": {},
+     "outputs": []
+    }
+   ],
+   "metadata": {}
+  }
+ ]
+}
